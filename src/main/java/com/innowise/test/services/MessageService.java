@@ -27,8 +27,6 @@ public class MessageService {
             incomeFileService.process(multipartFileMapper.mapToListIncomeFileDto(file));
         }
 
-
-
     }
 
 

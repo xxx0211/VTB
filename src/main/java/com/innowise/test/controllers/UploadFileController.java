@@ -4,14 +4,13 @@ import com.innowise.test.dto.MessageRequest;
 import com.innowise.test.exceptions.BadIncomeFileException;
 import com.innowise.test.services.MessageService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/upload")
 public class UploadFileController {
 
     private final MessageService messageService;
@@ -19,7 +18,7 @@ public class UploadFileController {
     @PostMapping
     public void uploadFile(@RequestBody MessageRequest messageRequest)
             throws IOException, BadIncomeFileException {
-        messageService.process(messageRequest);
+        //messageService.process(messageRequest);
 
     }
 
