@@ -2,16 +2,15 @@ package com.innowise.test.entities;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+
 @Data
 @Builder(toBuilder = true)
-@Table(name = "message")
+@Entity
 public class MessageEntity {
 
     @Id
@@ -22,7 +21,9 @@ public class MessageEntity {
 
     private LocalDateTime date;
 
-    private List<MultipartFile> files;
+    @OneToMany
+    // add link to incomeFile
+    private List<IncomeFileEntity> files;
 
 
 }

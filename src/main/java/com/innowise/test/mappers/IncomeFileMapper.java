@@ -2,7 +2,9 @@ package com.innowise.test.mappers;
 
 import com.innowise.test.dto.IncomeFileDto;
 import com.innowise.test.entities.IncomeFileEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class IncomeFileMapper {
     public IncomeFileEntity mapToFileIncomeEntity(IncomeFileDto incomeFileDto){
         return IncomeFileEntity.builder()

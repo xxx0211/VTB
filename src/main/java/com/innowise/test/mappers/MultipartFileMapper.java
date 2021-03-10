@@ -1,16 +1,16 @@
-package com.innowise.test.services;
+package com.innowise.test.mappers;
 
 import com.innowise.test.dto.IncomeFileDto;
 import com.innowise.test.enums.ArchiveFileType;
 import com.innowise.test.exceptions.BadIncomeFileException;
 import com.innowise.test.utils.FileUtil;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
 
-@Service
+@Component
 public class MultipartFileMapper {
 
     public List<IncomeFileDto> mapToListIncomeFileDto(MultipartFile file)

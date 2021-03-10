@@ -1,5 +1,7 @@
 package com.innowise.test.utils;
 
+
+//Create enum  instead class
 public class FileUtil {
     public static String getFileExtension(String filename){
         char letter;

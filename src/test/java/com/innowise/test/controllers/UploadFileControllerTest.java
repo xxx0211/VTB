@@ -1,15 +1,16 @@
 package com.innowise.test.controllers;
 
-import org.junit.jupiter.api.BeforeEach;
+import com.innowise.test.services.MessageService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @SpringBootTest
@@ -20,14 +21,14 @@ class UploadFileControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @BeforeEach
-    void init(){
+    private MockMultipartFile mockMultipartFile;
 
-    }
+    @Autowired
+    private MessageService messageService;
 
     @Test
-    public void uploadTest() throws Exception {
-        this.mockMvc.perform(get("/upload")).andExpect(MockMvcResultMatchers.status().isOk());
+    public void validationMessageRequest(){
+
     }
 
 }

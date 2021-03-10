@@ -3,12 +3,14 @@ package com.innowise.test.entities;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
 @Builder(toBuilder = true)
+@Entity
 public class IncomeFileEntity {
 
     @Id
@@ -20,4 +22,6 @@ public class IncomeFileEntity {
     private String fileExtension;
 
     private byte[] data;
+
+
 }
