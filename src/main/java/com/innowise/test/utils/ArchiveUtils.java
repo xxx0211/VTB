@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ArchiveUtils {
+
     public static List<IncomeFileDto> unzipZip(final byte[] content) {
         List<IncomeFileDto> incomeFiles = new LinkedList<>();
         IncomeFileDto incomeFileDto;
@@ -25,7 +26,7 @@ public class ArchiveUtils {
             for (ZipArchiveEntry entry : Collections.list(zipFile.getEntries())) {
                 incomeFileDto = IncomeFileDto.builder()
                         .name(entry.getName())
-                        .extension("json") // to add parse for extension
+                        .extension(FileUtil.getFileExtension(entry.getName()))
                         .data(zipFile.getInputStream(entry).readAllBytes())
                         .build();
                 incomeFiles.add(incomeFileDto);
@@ -46,7 +47,7 @@ public class ArchiveUtils {
             for (SevenZArchiveEntry archiveEntry : sevenZFile.getEntries()) {
                 incomeFileDto = IncomeFileDto.builder()
                         .name(archiveEntry.getName())
-                        .extension("json")
+                        .extension(FileUtil.getFileExtension(archiveEntry.getName()))
                         .data(sevenZFile.getInputStream(archiveEntry).readAllBytes())
                         .build();
                 incomeFileDtoList.add(incomeFileDto);
@@ -69,7 +70,7 @@ public class ArchiveUtils {
             while (fileHeader != null) {
                 incomeFileDto = IncomeFileDto.builder()
                         .name(fileHeader.getFileName())
-                        .extension("json")
+                        .extension(FileUtil.getFileExtension(fileHeader.getFileName()))
                         .data(archive.getInputStream(fileHeader).readAllBytes())
                         .build();
                 incomeFileDtoList.add(incomeFileDto);
